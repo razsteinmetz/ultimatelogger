@@ -1,4 +1,4 @@
-module ultimatelogger
+module github.com/razsteinmetz/ultimatelogger
 
 go 1.20
 
