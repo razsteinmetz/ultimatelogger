@@ -1,0 +1,60 @@
+# this is a basic user tamplate for the logging configuration
+# it will be created if not found in the main program directory
+# User need to fill api/keys etc.
+
+# define services to use, if not defined, only console is used
+# note that telegram and pushover are not enabled due to missing api keys
+telegram = false
+pushover = false
+console = true
+rotatefile = true
+
+# below only changes from default values
+
+[RotateFileConfig]
+Filename = "roattinglog.log"
+MaxSize = 2
+Level = "DEBUG"
+Formatter = "text"
+
+[RotateFileConfig.text]
+FullTimestamp = true
+isTerminal = false
+disableColors = true
+
+
+[PushoverConfig]
+APIKey = "***YOUR API KEY***"
+UserKey = "***YOUR USER KEY***"
+Level = "WARNING"
+Formatter = "text"
+
+[PushoverConfig.text]
+FullTimestamp = true
+isTerminal = false
+disableColors = true
+
+
+[TelegramConfig]
+APIKey = "***YOUR API KEY***"
+ChatID = 0 # your chat id
+Level = "WARNING"
+
+
+[TelegramConfig.text]
+FullTimestamp = true
+isTerminal = false
+disableColors = true
+
+
+[ConsoleConfig]
+Level = "DEBUG"
+Formatter = "text"
+
+[ConsoleConfig.text]
+FullTimestamp = true
+isTerminal = true
+DisableColors = false
+ForceColors = true
+PadLevelText = true
+DisableLevelTruncation = true

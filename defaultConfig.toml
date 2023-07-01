@@ -1,0 +1,72 @@
+# default configuration for loggers.
+# when the system loads the config file it first load this file to establish default values
+# so the user config files need only mention the values that are different from these defaults.
+# the formatter entry is either "text" or "json". Unless a specific overdide is specified the default
+# [text] or [json] is used.  However the user may create a [section.text] to override some or all the values.
+
+# there is a default [text] and [json] entries in the default configuration, so the user need only change the sepecific sections
+
+telegram = false
+pushover = false
+console = true
+rotatefile = false
+
+[RotateFileConfig]
+MaxSize = 100000000
+MaxBackups = 3
+MaxAge = 7
+Compress = true
+Level = "DEBUG"
+Formatter = "text"  # or json
+
+[PushoverConfig]
+#APIKey = "1234"
+#UserKey = "12345"
+Level = "ERROR"
+Formatter = "text"
+FixedFont = true
+
+
+[TelegramConfig]
+#APIKey = "api_key"
+#ChatID = 12345
+Level = "WARNING"
+Formatter = "text"
+
+[ConsoleConfig]
+Level = "INFO"
+Formatter = "text"  # speicfy "json" for json output  specify "text.console" to load the "text.console.config" item
+
+
+[text]
+# Set to true to bypass checking for a TTY before outputting colors.
+ForceColors = false
+# Force disabling colors. For a TTY colors are enabled by default.
+DisableColors=false
+# Force formatted layout, even for non-TTY output.
+ForceFormatting=false
+# Disable timestamp logging. useful when output is redirected to logging
+# system that already adds timestamps.
+DisableTimestamp=false
+# Disable the conversion of the log levels to uppercase
+DisableUppercase=false
+# Enable logging the full timestamp when a TTY is attached instead of just
+# the time passed since beginning of execution.
+FullTimestamp=false
+# Timestamp format to use for display when a full timestamp is printed.
+TimestampFormat  = "2006-01-02 15:04:05.000"
+# The fields are sorted by default for a consistent output. For applications
+# that log extremely frequently and don't use the JSON formatter this may not
+# be desired.
+DisableSorting=false
+# Wrap empty fields in quotes if true.
+QuoteEmptyFields=false
+# Can be set to the override the default quoting character "
+# with something else. For example: ', or `.
+QuoteCharacter ="\""
+# Pad msg field with spaces on the right for display.
+# The value for this parameter will be the size of padding.
+# Its default value is zero, which means no padding will be applied for msg.
+SpacePadding =0
+# Whether the logger's out is to a terminal.
+isTerminal=false
